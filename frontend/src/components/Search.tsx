@@ -8,7 +8,7 @@ function Search ({ items }){
     );
     
     return (
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 text-base">
             <input 
                 type="text"
                 className="p-2 border border-gray-400 rounded-md"
@@ -16,7 +16,7 @@ function Search ({ items }){
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
             />
-            <ul className="bg-white border border-black rounded-md absolute">
+            <ul className="bg-white border border-black rounded-md absolute hidden">
                 {filteredItems.map((item, index) => (
                     <li key={index} className="p-2">{item}</li>
                 ))}
