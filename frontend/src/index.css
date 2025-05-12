@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+body {
+    background-color: #455d7a;
+}
+
+.header {
+    font-family: "Bebas Neue", sans-serif;
+}
+
