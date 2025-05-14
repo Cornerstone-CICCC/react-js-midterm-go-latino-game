@@ -1,3 +1,4 @@
+
 //server
 import express,  { Request, Response }  from "express";
 import productRoutes from "./routes/Product.routes";
@@ -5,11 +6,31 @@ import dotenv from "dotenv";
 dotenv.config();
 import cors from "cors";
 import mongoose from 'mongoose'
+import customerRouter from './routes/Customer.routes'
+import cookieSession from 'cookie-session'
 
 const app = express();
 app.use(express.json());
 
 app.use("/products", productRoutes);
+const SIGN_KEY = process.env.COOKIE_SIGNIN_KEY
+const ENCRYPT_KEY = process.env.COOKIE_ENCRYPT_KEY
+if (!SIGN_KEY || !ENCRYPT_KEY) {
+  throw new Error("Missing cookie keys!")
+}
+app.use(cookieSession({
+    name: 'session',
+    keys: [SIGN_KEY, ENCRYPT_KEY]
+}))
+app.use(express.json())
+
+
+// Routes
+app.use('/customers', customerRouter)
+
+app.use((req: Request, res: Response) => {
+    res.status(404).send("Route not found")
+})
 
 // Root route
 app.get('/', (req: Request, res: Response) => {
@@ -37,4 +58,9 @@ app.use((req: Request, res: Response) => {
       console.error(err)
       throw err
     })
+
+
+
+
+
 

@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+body {
+    background-color: #455d7a;
+}
+
+.header {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.title{
+    font-family: "Rock Salt", cursive;
+}
+
+.intro {
+    font-family: "Roboto Mono", monospace;
+}
+
