@@ -1,38 +1,41 @@
+import { Link } from 'react-router-dom'
 import Search from './Search'
 
 function Header() {
-    const items = ["Men", "Women", "Shoes", "Accesories"]
+    const items = ["Men", "Women"]
+
+
     return (
-        <div className="flex justify-between items-end p-8 bg-[#e3e3e3] text-[#233142] m-8 rounded-md header">
-            <menu className='flex'>
-                <nav>
-                    <ul className="flex flex-column gap-4 text-2xl">
+        <div className="flex justify-between items-center p-8 bg-[#e3e3e3] text-[#233142] m-8 rounded-md header">
+                <nav className='flex flex-row'>
+                    <ul className="flex flex-col gap-4 text-2xl">
                         <li>
-                            <a href="/">Home</a>
+                            <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <a href="/catalog">Catalog</a>
+                            <Link to="/catalog">Catalog</Link>
                         </li>
                         <li>
-                            <a href="/contact">Contact</a>
+                            <Link to="/contact">Contact</Link>
                         </li>
                     </ul>
                 </nav>
-            </menu>
             <h1 className="title">The Cielito Lindo Boutique</h1>
+
+            {/*Search items */}
             <Search items={items} />
             <div className='flex justify-end gap-4'>
                 {/*Login */}
                 <button 
                 type="button"
                 className="text-2xl bg-[#f95959] p-2 rounded-s-lg">
-                Login
+                    <Link to="/login">Login</Link>
                 </button>
-                {/*Sigup */}
+                {/*Signup */}
                 <button 
-                    type="button"
-                    className="text-2xl bg-[#f95959] p-2 rounded-s-lg">
-                    Sign up
+                type="button"
+                className="text-2xl bg-[#f95959] p-2 rounded-s-lg">
+                    <Link to="/signup">Signup</Link>
                 </button>
             </div>
         </div>
