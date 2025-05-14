@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon dist/server.js\"",
+
     "test": "echo \"Error: no test specified\" && exit 1"
+
   },
   "keywords": [],
   "author": "",
@@ -24,6 +27,7 @@
     "concurrently": "^9.1.2",
     "cookie-session": "^2.1.0",
     "dotenv": "^16.5.0",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mongoose": "^8.14.2"
   }
 }
