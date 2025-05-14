@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Customer_Model_1 = require("../models/Customer.Model");
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const uuid_1 = require("uuid");
-// create customer
 const createCustomer = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { firstname, lastname, age, email, password } = req.body;
@@ -39,6 +38,16 @@ const createCustomer = (req, res) => __awaiter(void 0, void 0, void 0, function*
     catch (err) {
         console.error(err);
         res.status(500).json({ message: "Unable to create customer account" });
+    }
+});
+const getAllCustomers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const customers = yield Customer_Model_1.Customer.find();
+        res.status(200).json(customers);
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Unable to catch customers" });
     }
 });
 const getCustomerById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -87,9 +96,46 @@ const updateCustomer = (req, res) => __awaiter(void 0, void 0, void 0, function*
         res.status(500).json({ message: "Unable to update customer account" });
     }
 });
+const loginCustomer = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { email, password } = req.body;
+    if (!email || !password) {
+        res.status(404).json({ message: "missing account information" });
+    }
+    try {
+        const customer = yield Customer_Model_1.Customer.findOne({ email });
+        if (!customer) {
+            res.status(404).json({ message: "Incorrect account details" });
+            return;
+        }
+        const correctPassword = yield bcrypt_1.default.compare(password, customer.password);
+        if (!correctPassword) {
+            res.status(401).json({ message: "Incorrect account details" });
+            return;
+        }
+        if (!req.session) {
+            res.status(500).json({ message: "Error initializing session" });
+            return;
+        }
+        if (correctPassword) {
+            req.session.isLoggedIn = true;
+        }
+        res.status(200).json({ message: 'customer logged in succesfully' });
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Unable to login customer" });
+    }
+});
+const logoutCustomer = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    req.session = null;
+    res.status(200).json({ message: "Logged out" });
+});
 exports.default = {
     createCustomer,
     deleteCustomer,
     updateCustomer,
-    getCustomerById
+    getCustomerById,
+    getAllCustomers,
+    loginCustomer,
+    logoutCustomer
 };

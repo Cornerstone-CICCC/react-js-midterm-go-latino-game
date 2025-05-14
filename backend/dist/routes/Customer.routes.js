@@ -10,4 +10,7 @@ customerRouter.post('/', Customer_controller_1.default.createCustomer);
 customerRouter.delete("/:id", Customer_controller_1.default.deleteCustomer);
 customerRouter.put("/:id", Customer_controller_1.default.updateCustomer);
 customerRouter.get("/:id", Customer_controller_1.default.getCustomerById);
+customerRouter.post('/logout', Customer_controller_1.default.logoutCustomer);
+customerRouter.get('/', Customer_controller_1.default.getAllCustomers);
+customerRouter.post('/login', Customer_controller_1.default.loginCustomer);
 exports.default = customerRouter;
