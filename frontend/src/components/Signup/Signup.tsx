@@ -1,7 +1,7 @@
 function Signup() {
     return(
         <div className="bg-white text-black">
-            <h1>SIgnup</h1>
+            <h1>Signup</h1>
         </div>
     );
 }
