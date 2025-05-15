@@ -1,6 +1,6 @@
 function Signup() {
     return(
-        <div className="flex flex-row justify-between gap-4 border border-black mx-50 bg-[#e3e3e3] rounded-4xl mb-8 p-8">
+        <div className="flex flex-row justify-between gap-2 border border-black mx-50 bg-[#e3e3e3] rounded-4xl mb-8 p-8">
             <div className="flex flex-col border border-black p-8">
                 <div className="logo flex flex-row justify-center">
                     <img src="vite.svg" alt="logo" />
@@ -13,12 +13,16 @@ function Signup() {
                 <div className="userForm">
                     <form action="">
                         {/*Full Name */}
-                        <div>
+                        <div className="flex justify-center p-2">
                         <label htmlFor="">
-                            Name:
-                            <input className="border border-black rounded-4" type="text" />
+                            <input 
+                            className="border border-black 
+                            rounded-lg p-2" 
+                            type="text" 
+                            placeholder="Name"/>
                         </label>
                         </div>
+                        {/* */}
                     </form>
                 </div>
             </div>
