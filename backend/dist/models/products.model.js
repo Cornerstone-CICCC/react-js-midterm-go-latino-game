@@ -1,6 +1,4 @@
 "use strict";
-
-
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -35,14 +33,32 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Customer = void 0;
+exports.Product = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
-const CustomerSchema = new mongoose_1.Schema({
-    firstname: { type: String, required: true },
-    lastname: { type: String, required: true },
-    age: { type: Number, required: true },
-    email: { type: String, required: true },
-    password: { type: String, required: true }
+const ProductSchema = new mongoose_1.Schema({
+    id: {
+        type: Number,
+        required: false
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    size: {
+        type: String,
+        required: true,
+    },
+    image: {
+        type: String,
+        required: true
+    }
 });
-exports.Customer = mongoose_1.default.model('Customer', CustomerSchema);
-
+exports.Product = mongoose_1.default.model('Product', ProductSchema);

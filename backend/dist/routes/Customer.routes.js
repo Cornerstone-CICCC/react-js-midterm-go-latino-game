@@ -1,4 +1,6 @@
 "use strict";
+
+
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -14,3 +16,4 @@ customerRouter.post('/logout', Customer_controller_1.default.logoutCustomer);
 customerRouter.get('/', Customer_controller_1.default.getAllCustomers);
 customerRouter.post('/login', Customer_controller_1.default.loginCustomer);
 exports.default = customerRouter;
+
