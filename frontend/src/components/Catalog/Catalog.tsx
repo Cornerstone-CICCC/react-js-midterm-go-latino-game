@@ -39,7 +39,36 @@ function Catalog () {
             description: "Stylish and comfortable",
             size: "M",
             image: "https://example.com/skinny-jeans.jpg",
-            category: "Women" 
+            category: "Women",
+            stock:""
+        },
+        {
+            id: 2,
+            name: "Skinny Jeans", 
+            price: 22.99, 
+            description: "Stylish and comfortable",
+            size: "M",
+            image: "https://example.com/skinny-jeans.jpg",
+            category: "Women",
+            stock:""
+        },{
+            id: 3,
+            name: "Skinny Jeans", 
+            price: 22.99, 
+            description: "Stylish and comfortable",
+            size: "M",
+            image: "https://example.com/skinny-jeans.jpg",
+            category: "Women",
+            stock:""
+        },{
+            id: 4,
+            name: "Skinny Jeans", 
+            price: 22.99, 
+            description: "Stylish and comfortable",
+            size: "M",
+            image: "https://example.com/skinny-jeans.jpg",
+            category: "Women",
+            stock:""
         }
     ]
 
@@ -124,6 +153,18 @@ function Catalog () {
                             <img src={product.image} alt={product.name} className="w-32 h-32 mx-auto" />
                             <h2 className='text-lg font-bold'>{product.name}</h2>
                             <p>{product.description}</p>
+                            <p className="text-[#f95959] font-bold">${product.price.toFixed(2)}</p>
+                            <button
+                            onClick={() => addToCart(product)}
+                            className="mt-2 
+                            bg-[#f95959] 
+                            text-white 
+                            p-2 
+                            rounded-lg
+                            w-full"
+                        >
+                            Add to Cart
+                        </button>
                         </div>
                     ))}
                 </div>
