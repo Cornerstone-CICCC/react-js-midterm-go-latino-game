@@ -35,7 +35,7 @@ function Header() {
                 <button 
                 type="button"
                 className="text-2xl bg-[#f95959] p-2 rounded-s-lg">
-                    <Link to="/signup" target='_blank'>Signup</Link>
+                    <Link to="/signup">Signup</Link>
                 </button>
             </div>
         </div>
