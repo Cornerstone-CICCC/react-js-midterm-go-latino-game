@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from './components/Layout'
+import Catalog from './components/Catalog/Catalog'
 import Main from './components/Main/Main'
 import Login from './components/Login/Login'
 import Signup from './components/Signup/Signup'
@@ -11,6 +12,7 @@ function App(){
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout/>}>
+          <Route path="/catalog" element={<Catalog/>} />
           <Route index element={<Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />

@@ -9,6 +9,18 @@ function Signup() {
                     <p className="header text-[40px]">Sign up</p>
                     <p className="text-[#929aab]">Welcome to our community - Let's create your account!</p>
                 </div>
+                {/*Form */}
+                <div className="userForm">
+                    <form action="">
+                        {/*Full Name */}
+                        <div>
+                        <label htmlFor="">
+                            Name:
+                            <input className="border border-black rounded-4" type="text" />
+                        </label>
+                        </div>
+                    </form>
+                </div>
             </div>
             <div className="flex flex-col">
                 <img className="border rounded-lg" src="/images/model2.png" alt="model" />
