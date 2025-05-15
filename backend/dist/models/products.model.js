@@ -54,11 +54,11 @@ const ProductSchema = new mongoose_1.Schema({
     },
     size: {
         type: String,
-        required: true,
+        required: false,
     },
     image: {
         type: String,
-        required: true
+        required: false
     }
 });
 exports.Product = mongoose_1.default.model('Product', ProductSchema);

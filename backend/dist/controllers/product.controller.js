@@ -36,27 +36,6 @@ const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.status(500).json({ message: 'Unable to add product' });
     }
 });
-// Fetch a specific product by ID
-router.get("/:id", (req, res) => {
-    const product = products_model_1.Product.find((p) => p.id === parseInt(req.params.id));
-    if (!product) {
-        res.status(404).send("Product not found");
-    }
-    else {
-        res.json(product);
-    }
-});
-// Update a specific product by ID
-router.put("/:id", (req, res) => {
-    const product = products_model_1.Product.find((p) => p.id === parseInt(req.params.id));
-    if (!product) {
-        res.status(404).send("Product not found");
-    }
-    else {
-        Object.assign(product, req.body);
-        res.json(product);
-    }
-});
 const deleteProductById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const student = yield products_model_1.Product.findByIdAndDelete(req.params.id);
@@ -64,7 +43,7 @@ const deleteProductById = (req, res) => __awaiter(void 0, void 0, void 0, functi
     }
     catch (err) {
         console.error(err);
-        res.status(500).json({ message: "Unable to delete student" });
+        res.status(500).json({ message: "Unable to delete product" });
     }
 });
 exports.default = {
