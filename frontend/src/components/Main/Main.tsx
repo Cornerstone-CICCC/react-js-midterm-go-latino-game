@@ -1,6 +1,4 @@
-import CheckoutButton from '../Cart/CheckoutButton'
-
-const Home = () => {
+const Main = () => {
     return (
         <div className="bg-[#455d7a] flex justify-center flex-col items-center">
             <div className="flex flex-col justify-center items-center">
@@ -29,10 +27,9 @@ const Home = () => {
 
             {/* Aquí va el botón */}
             <div className="mt-8 mb-12">
-                <CheckoutButton />
             </div>
         </div>
     );
 }
 
-export default Home
+export default Main

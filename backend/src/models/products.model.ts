@@ -32,12 +32,12 @@ const ProductSchema: Schema= new Schema({
     },
     size:{
         type:String,
-        required:true,
+        required:false,
 
     },
     image:{
         type:String,
-        required:true
+        required:false
     }
 
 

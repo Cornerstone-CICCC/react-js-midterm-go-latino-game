@@ -14,7 +14,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Customer_Model_1 = require("../models/Customer.Model");
 const bcrypt_1 = __importDefault(require("bcrypt"));
-const uuid_1 = require("uuid");
 const createCustomer = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { firstname, lastname, age, email, password } = req.body;
@@ -26,7 +25,6 @@ const createCustomer = (req, res) => __awaiter(void 0, void 0, void 0, function*
         }
         const hashedPassword = yield bcrypt_1.default.hash(password, 12);
         const customer = yield Customer_Model_1.Customer.create({
-            id: (0, uuid_1.v4)(),
             firstname,
             lastname,
             age,

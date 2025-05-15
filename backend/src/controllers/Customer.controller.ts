@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { Customer, ICustomer } from "../models/Customer.Model";
 import bcrypt from 'bcrypt'
-import { v4 as uuidv4 } from "uuid";
 
 const createCustomer = async (req: Request<{}, {}, Omit<ICustomer, 'id'>>, res: Response) => {
     try {
@@ -15,7 +14,6 @@ const createCustomer = async (req: Request<{}, {}, Omit<ICustomer, 'id'>>, res: 
 
         const hashedPassword = await bcrypt.hash(password, 12)
         const customer = await Customer.create({ 
-            id: uuidv4(),
             firstname, 
             lastname, 
             age, 
