@@ -10,9 +10,12 @@ import customerRouter from './routes/Customer.routes'
 import cookieSession from 'cookie-session'
 
 const app = express();
-app.use(express.json());
 
-app.use("/products", productRoutes);
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}))
+
 const SIGN_KEY = process.env.COOKIE_SIGNIN_KEY
 const ENCRYPT_KEY = process.env.COOKIE_ENCRYPT_KEY
 if (!SIGN_KEY || !ENCRYPT_KEY) {
@@ -27,20 +30,18 @@ app.use(express.json())
 
 // Routes
 app.use('/customers', customerRouter)
-
-app.use((req: Request, res: Response) => {
-    res.status(404).send("Route not found")
-})
-
+app.use("/products", productRoutes)
 // Root route
 app.get('/', (req: Request, res: Response) => {
     res.status(200).send('Welcome to my server');
   });
 
+
+// Fallback
 app.use((req: Request, res: Response) => {
-    res.status(404).send('Invalid route!')
-  })
-  
+    res.status(404).send("Route not found")
+})
+
   const PORT = process.env.PORT || 3000
   if (!process.env.DATABASE_URI) {
     throw new Error("Missing connection string")
