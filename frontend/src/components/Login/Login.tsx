@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 function Login() {
     return(
-        <div className="flex flex-row justify-between gap-2 border border-black mx-50 bg-[#e3e3e3] rounded-4xl mb-8">
+        <div className="flex flex-row justify-between gap-2 border border-black mx-50 bg-white rounded-4xl mb-8">
             <div className="flex flex-col m-8 px-8">
                 <div className="logo flex flex-row justify-center">
                     <img className='w-25' src="logoSignUp.svg" alt="logo" />
