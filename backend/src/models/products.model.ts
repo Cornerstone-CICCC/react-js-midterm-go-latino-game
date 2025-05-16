@@ -5,8 +5,10 @@ export interface Iproduct extends Document{
     name:string;
     price:number;
     description:string;
-    size:string;
-    image:string
+    size:string[];
+    image:string;
+    stock:number;
+    category:string;
 
 }
 
@@ -31,15 +33,23 @@ const ProductSchema: Schema= new Schema({
         required: true
     },
     size:{
-        type:String,
+        type:[],
         required:true,
 
     },
     image:{
         type:String,
         required:true
-    }
+    },
 
+    stock:{
+        type:Number,
+        required:true
+    },
+    category:{
+        type:String,
+        required:true
+    },
 
     })
 

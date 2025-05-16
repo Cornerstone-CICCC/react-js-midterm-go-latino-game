@@ -26,8 +26,8 @@ const Getall = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 // Add a new product
 const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { name, price, description } = req.body;
-        const product = yield products_model_1.Product.create({ name, price, description });
+        const { name, price, description, size, image, stock, category } = req.body;
+        const product = yield products_model_1.Product.create({ name, price, description, size, image, stock, category });
         res.status(201).json(product);
         console.log(product);
     }
@@ -36,25 +36,16 @@ const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.status(500).json({ message: 'Unable to add product' });
     }
 });
-// Fetch a specific product by ID
-router.get("/:id", (req, res) => {
-    const product = products_model_1.Product.find((p) => p.id === parseInt(req.params.id));
-    if (!product) {
-        res.status(404).send("Product not found");
+const updateProductById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const student = yield products_model_1.Product.findByIdAndUpdate(req.params.id, req.body, {
+            new: true // return updated data
+        });
+        res.status(200).json(products_model_1.Product);
     }
-    else {
-        res.json(product);
-    }
-});
-// Update a specific product by ID
-router.put("/:id", (req, res) => {
-    const product = products_model_1.Product.find((p) => p.id === parseInt(req.params.id));
-    if (!product) {
-        res.status(404).send("Product not found");
-    }
-    else {
-        Object.assign(product, req.body);
-        res.json(product);
+    catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Unable to update product" });
     }
 });
 const deleteProductById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -64,11 +55,12 @@ const deleteProductById = (req, res) => __awaiter(void 0, void 0, void 0, functi
     }
     catch (err) {
         console.error(err);
-        res.status(500).json({ message: "Unable to delete student" });
+        res.status(500).json({ message: "Unable to delete product" });
     }
 });
 exports.default = {
     Getall,
     deleteProductById,
     createProduct,
+    updateProductById
 };
