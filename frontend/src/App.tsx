@@ -5,6 +5,7 @@ import Contact from './components/Contact/Contact'
 import Main from './components/Main/Main'
 import Login from './components/Login/Login'
 import Signup from './components/Signup/Signup'
+import Admin from './components/Admin/Admin'
 import './App.css'
 
 function App(){
@@ -19,6 +20,7 @@ function App(){
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Route>
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>
     </>
