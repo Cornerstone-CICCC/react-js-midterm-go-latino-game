@@ -103,7 +103,7 @@ function AdminCatalog(){
                             <p className="text-[#f95959] font-bold">${product.price.toFixed(2)}</p>
                             {/*Edit Button */}
                             <button
-                            onClick={() => editProduct(product)}
+                            onClick={() => editProduct(product.id)} 
                             className="mt-2 
                             bg-[#f95959] 
                             text-white 
@@ -116,7 +116,7 @@ function AdminCatalog(){
                             Edit
                         </button>
                         <button
-                            onClick={() => deleteProduct(product)}
+                            onClick={() => deleteProduct(product.id)}
                             className="mt-2
                             bg-[#f95959] 
                             text-white 
