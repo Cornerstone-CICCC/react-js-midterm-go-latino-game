@@ -16,3 +16,8 @@ body {
     font-family: "Roboto Mono", monospace;
 }
 
+/*Catalog*/
+.catalogTitle{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 50px;
+}

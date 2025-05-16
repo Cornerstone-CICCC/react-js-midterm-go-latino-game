@@ -1,4 +1,4 @@
-const Home = () => {
+const Main = () => {
     return (
         <div className="bg-[#455d7a] flex justify-center flex-col items-center">
             <div className="flex flex-col justify-center items-center">
@@ -24,4 +24,4 @@ const Home = () => {
     );
 }
 
-export default Home
+export default Main

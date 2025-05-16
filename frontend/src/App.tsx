@@ -1,20 +1,26 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from './components/Layout'
-import Home from './components/Home/Home'
-import Footer from './components/Footer/Footer'
+import Catalog from './components/Catalog/Catalog'
+import Contact from './components/Contact/Contact'
+import Main from './components/Main/Main'
+import Login from './components/Login/Login'
+import Signup from './components/Signup/Signup'
 import './App.css'
 
-function App() {
-
-  return (
+function App(){
+  return(
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}></Route>
-        </Routes>
-        <Home />
-        <Footer />
-      </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout/>}>
+          <Route path="/catalog" element={<Catalog/>} />
+          <Route path="/contact" element={<Contact />} />
+          <Route index element={<Main />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
     </>
   )
 }

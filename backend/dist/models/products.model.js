@@ -68,5 +68,6 @@ const ProductSchema = new mongoose_1.Schema({
         type: String,
         required: true
     },
+      
 });
 exports.Product = mongoose_1.default.model('Product', ProductSchema);
