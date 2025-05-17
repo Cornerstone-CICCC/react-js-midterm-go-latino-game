@@ -1,29 +1,50 @@
-// frontend/src/components/CheckoutButton.tsx
+import { useCart } from '../../context/CartContext';
+
 const CheckoutButton = () => {
-  const handleCheckout = async () => {
-    try {
-      const response = await fetch('http://localhost:4500/api/checkout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({}) // si luego quieres enviar items del carrito, aquí los mandas
-      });
+  const {
+    state: { items },
+  } = useCart();
 
-      const data = await response.json();
+ const handleCheckout = async () => {
+  if (items.length === 0) {
+    alert('Your cart is empty!');
+    return;
+  }
 
-      if (data.url) {
-        window.location.href = data.url; // Redirige a Stripe Checkout
-      }
-    } catch (error) {
-      console.error('Error during checkout:', error);
+  try {
+    const response = await fetch('http://localhost:4500/api/checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        items: items.map((item) => ({
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity,
+          image: item.image, // ✅
+          size: item.size,
+        })),
+      }),
+    });
+
+    const data = await response.json();
+
+    if (data?.url) {
+      window.location.href = data.url;
+    } else {
+      throw new Error('Stripe did not return a checkout URL');
     }
-  };
+  } catch (error) {
+    console.error('❌ Error during checkout:', error);
+    alert('Something went wrong while starting the checkout process.');
+  }
+};
 
   return (
     <button
       onClick={handleCheckout}
-      className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+      className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition w-full mt-4"
     >
       Checkout
     </button>
@@ -31,4 +52,3 @@ const CheckoutButton = () => {
 };
 
 export default CheckoutButton;
-
