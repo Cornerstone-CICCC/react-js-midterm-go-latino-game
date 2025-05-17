@@ -13,29 +13,20 @@ import './App.css';
 
 function App() {
   return (
-      <Routes>
-        <Route path="/" element={<Layout/>}><Route element={<Layout />}>
-  <Route index element={<Main />} />
-  <Route path="/catalog" element={<Catalog />} />
-  <Route path="/contact" element={<Contact />} />
-  <Route path="/login" element={<Login />} />
-  <Route path="/signup" element={<Signup />} />
-  <Route path="/success" element={<Success />} />
-  <Route path="/cancel" element={<Cancel />} />
-  <Route path="/cart" element={<CartPage />} />
-</Route>
-
-          <Route path="/catalog" element={<Catalog/>} />
-          <Route index element={<Main />} />
-          <Route path="/catalog" element={<Catalog />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/success" element={<Success />} />
-          <Route path="/cancel" element={<Cancel />} />
-          <Route path="/cart" element={<CartPage />} />
-        </Route>
-        <Route path="/admin" element={<Admin />} />
-      </Routes>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Main />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Cancel />} />
+        <Route path="/cart" element={<CartPage />} />
+      </Route>
+      
+      <Route path="/admin" element={<Admin />} />
+    </Routes>
   );
 }
 
