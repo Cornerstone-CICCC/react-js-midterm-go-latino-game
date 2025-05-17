@@ -17,13 +17,25 @@ const Getall = async (req: Request, res: Response) => {
 // Add a new product
 const createProduct = async (req: Request<{}, {}, Iproduct>, res: Response) => {
   try {
-    const { name, price, description } = req.body
-    const product = await Product.create({ name, price, description })
+    const { name, price, description, size, image, stock, category } = req.body
+    const product = await Product.create({ name, price, description, size, image, stock, category })
     res.status(201).json(product)
     console.log(product)  
   } catch (err) {
     console.error(err)
     res.status(500).json({ message: 'Unable to add product' })
+  }
+}
+
+const updateProductById = async (req: Request<{ id: string }, {}, Partial<Iproduct>>, res: Response) => {
+  try {
+    const student = await Product.findByIdAndUpdate(req.params.id, req.body, {
+      new: true // return updated data
+    })
+    res.status(200).json(Product)
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ message: "Unable to update product" })
   }
 }
 
@@ -42,4 +54,5 @@ export default {
   Getall,
   deleteProductById,
   createProduct,
+  updateProductById
 };
