@@ -18,7 +18,7 @@ export const createCheckoutSession = async (req: Request, res: Response): Promis
       price_data: {
         currency: 'usd',
         product_data: {
-          name: `${item.name} - Size ${item.size}`, // ✅ Se incluye la talla
+          name: `${item.name} - Size ${item.size}`, 
           images: [item.image],
         },
         unit_amount: Math.round(item.price * 100),

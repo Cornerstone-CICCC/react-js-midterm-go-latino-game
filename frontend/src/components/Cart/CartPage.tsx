@@ -3,7 +3,6 @@ import CartItem from './CartItem';
 import CartForm from './CartForm';
 import CheckoutButton from '../Cart/CheckoutButton';
 import { Link } from 'react-router-dom';
-import { Button } from "@/components/ui/button";
 
 const CartPage = () => {
   const {
@@ -21,15 +20,15 @@ const CartPage = () => {
         </h1>
 
         {items.length === 0 ? (
-          <p className="text-lg">
-            Your cart is empty.
-            <Link
-              to="/catalog"
-              className="ml-2 text-xl font-semibold text-blue-400 hover:text-blue-600 underline"
-            >
-              Go shopping
-            </Link>
-          </p>
+          <p className="text-lg text-white">
+  Your cart is empty.
+  <Link
+    to="/catalog"
+    className="ml-3 inline-block px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow transition"
+  >
+    Go shopping
+  </Link>
+</p>
         ) : (
           items.map((item) => (
             <CartItem key={item.id} {...item} />
@@ -37,17 +36,15 @@ const CartPage = () => {
         )}
 
         {items.length > 0 && (
-          <Button
-            variant="destructive"
-            onClick={clearCart}
-            className="text-lg px-6 py-3 rounded-xl"
-          >
-            Clear cart
-          </Button>
+        <button
+    onClick={clearCart}
+    className="mt-4 bg-red-600 hover:bg-red-700 text-white text-lg px-6 py-3 rounded-xl transition font-bold"
+  >
+    Clear cart
+  </button>
         )}
       </div>
 
-      {/* Delivery and Total */}
       <div className="border rounded-lg p-6 bg-gray-50 text-black">
         <h2 className="text-2xl font-bold mb-4 text-black">Delivery Information</h2>
         <CartForm />

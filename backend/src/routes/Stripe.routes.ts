@@ -3,7 +3,7 @@ import { createCheckoutSession } from '../controllers/stripe.controller';
 
 const router = express.Router();
 
-// POST /api/checkout
+
 router.post('/checkout', createCheckoutSession);
 
 export default router;

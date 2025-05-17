@@ -139,9 +139,6 @@ function Catalog() {
       size: product.size || "M",
     };
 
-    console.log('✅ Added to cart:', item);
-
-   console.log("Adding to cart", product);
 
   addToCart(item);
   };

@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer, useEffect } from 'react';
 import type { ReactNode } from 'react';
 
-// 1. Tipos
+
 interface CartItem {
   id: string;
   name: string;
@@ -25,10 +25,10 @@ interface CartContextType {
   getTotal: () => number;
 }
 
-// 2. Crear contexto
+
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-// 3. Reducer
+
 const cartReducer = (state: CartState, action: any): CartState => {
   switch (action.type) {
     case 'ADD_TO_CART': {
@@ -140,7 +140,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-// 5. Hook personalizado
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) throw new Error('useCart debe usarse dentro de un CartProvider');

@@ -22,7 +22,7 @@ const CheckoutButton = () => {
           name: item.name,
           price: item.price,
           quantity: item.quantity,
-          image: item.image, // ✅
+          image: item.image, 
           size: item.size,
         })),
       }),
@@ -36,18 +36,18 @@ const CheckoutButton = () => {
       throw new Error('Stripe did not return a checkout URL');
     }
   } catch (error) {
-    console.error('❌ Error during checkout:', error);
+    console.error('Error during checkout:', error);
     alert('Something went wrong while starting the checkout process.');
   }
 };
 
   return (
-    <button
-      onClick={handleCheckout}
-      className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition w-full mt-4"
-    >
-      Checkout
-    </button>
+   <button
+  onClick={handleCheckout}
+  className="w-full mt-6 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-xl shadow transition-transform hover:scale-105"
+>
+  Checkout
+</button>
   );
 };
 
