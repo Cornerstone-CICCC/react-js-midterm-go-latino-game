@@ -1,3 +1,5 @@
+import './Contact.css'
+
 function Contact() {
     return(
         <div className="flex justify-center items-center 
