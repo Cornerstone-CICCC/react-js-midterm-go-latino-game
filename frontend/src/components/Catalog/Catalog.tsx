@@ -161,7 +161,7 @@ function Catalog () {
                 )}
 
                 {/*Displaying Products Cards */}
-                <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+                {/* <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
                     {products.map((product) => (
                         <div key={product.id} className='border p-4 rounded shadow-lg'>
                             <img src={product.image} alt={product.name} className="w-32 h-32 mx-auto" />
@@ -181,7 +181,7 @@ function Catalog () {
                         </button>
                         </div>
                     ))}
-                </div>
+                </div> */}
                 <ul className='grid grid-cols-1 md:grid-cols-4 gap-4'>
                     {allProducts.map(product => (
                         <li key={product.id} className='border p-4 rounded shadow-lg list-none'>
