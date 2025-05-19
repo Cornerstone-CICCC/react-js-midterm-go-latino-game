@@ -8,13 +8,14 @@
         flex-direction: column;
         gap: 10px;
     }
-    h1 {
+    .titleContact {
         font-size: 60px;
     }
-    p {
-        font-size: 18px;
+    p.contactFont {     
+        font-size: 20px;
     }
     textarea {
         width: 100%;
+        max-width: 100%;
     }
 }
