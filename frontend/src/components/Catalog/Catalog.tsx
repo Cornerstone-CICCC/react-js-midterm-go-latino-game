@@ -1,5 +1,5 @@
-import { useState } from 'react'
-
+import { useEffect, useState } from 'react'
+import type { Iproduct } from '../../../../backend/src/models/products.model'
 
 const SearchComponent = ({ data }) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -74,6 +74,7 @@ function Catalog () {
 
     const [cart, setCart] = useState([]);
     const [isCartShowing, setIsCartShowing] = useState(false);
+    const [allProducts, setAllProducts] = useState<Iproduct[]>([])
 
     const addToCart = (product) => {
         setCart([...cart, product]);
@@ -82,6 +83,19 @@ function Catalog () {
     const clearCart = () => {
         setCart([]);
     };
+
+    useEffect(() => {
+        const getAllProducts = async () => {
+            try {
+                const res = await fetch('http://localhost:4500/products')
+                const data = await res.json()
+                setAllProducts(data)
+            } catch (err) {
+                console.error('Error fetching products', err)
+            }
+        }
+        getAllProducts()
+    }, [])
 
     return(
         <div className="p-8 bg-[#e3e3e3] text-[#233142] m-8 rounded-md">
@@ -168,6 +182,23 @@ function Catalog () {
                         </div>
                     ))}
                 </div>
+                <ul className='grid grid-cols-1 md:grid-cols-4 gap-4'>
+                    {allProducts.map(product => (
+                        <li key={product.id} className='border p-4 rounded shadow-lg list-none'>
+                            <div className='overflow-hidden h-[300px] flex items-center'>
+                                <img src={product.image} alt={product.name} className='w-full h-max' />
+                            </div>
+                            <h2 className='text-lg font-bold truncate'>{product.name}</h2>
+                            <p className="text-[#f95959] font-bold truncate">{product.description}</p>
+                            <p className="text-[#f95959] font-bold ">${product.price}</p>
+                            <button
+                                onClick={() => addToCart(product)}
+                                className="mt-2 bg-[#f95959] text-white p-2 rounded-lg w-full">
+                                Add to Cart
+                            </button>
+                        </li>
+                    ))}
+                </ul>
         </div>
     );
 }

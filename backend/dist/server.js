@@ -15,6 +15,7 @@ const cookie_session_1 = __importDefault(require("cookie-session"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
     origin: "http://localhost:5173",
+    methods: ["GET", "POST"],
     credentials: true
 }));
 const SIGN_KEY = process.env.COOKIE_SIGNIN_KEY;
