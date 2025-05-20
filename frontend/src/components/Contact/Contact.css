@@ -157,4 +157,37 @@
 }
 
 @media (min-width: 1200px){
+    .info {
+        text-align: center;
+    }
+    .flex-row {
+        flex-direction: column;
+    }
+
+    .data{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .titleContact {
+        font-size: 80px;
+        font-family: "Bebas Neue", sans-serif;
+    }
+
+    p.pContact{
+        font-family: "Bebas Neue", sans-serif;
+        width: 100%;
+        max-width: 100%;
+        font-size: 30px;
+    }
+
+    p.contactFont {     
+        font-size: 26px;
+    }
+
+    textarea {
+        width: 100%;
+        max-width: 100%;
+    }
 }
