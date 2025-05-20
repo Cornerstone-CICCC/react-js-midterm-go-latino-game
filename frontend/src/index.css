@@ -1,9 +1,7 @@
 @import "tailwindcss";
-@import "tw-animate-css"; /* Solo si estás usando tailwindcss-animate */
 
-/* ==================== FUENTES PERSONALIZADAS ==================== */
 body {
-  background-color: #455d7a; /* Fondo general */
+  background-color: #455d7a; 
 }
 
 .header {
