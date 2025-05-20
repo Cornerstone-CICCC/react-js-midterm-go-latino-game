@@ -1,3 +1,4 @@
+import './Header.css'
 import { Link } from 'react-router-dom'
 
 function Header() {
@@ -20,17 +21,17 @@ function Header() {
                         </li>
                     </ul>
                 </nav>
-            <h1 className="title">The Cielito Lindo Boutique</h1>
+            <h1 className="title flex flex-row">The Cielito Lindo Boutique</h1>
 
             {/*Location */}
-            <div className='flex justify-center gap-4 text-[20px]'>Visit us
+            <div className='visitUs flex justify-center gap-4 text-[20px]'>Visit us
                 <a href="https://maps.app.goo.gl/ChzHnp4883DrdS1K8" target='_blank'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
   <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
 </svg>
                 </a>
             </div>
-            <div className='flex justify-end gap-4'>
+            <div className='buttonsHeader flex justify-end gap-4'>
                 {/*Login */}
                 <button 
                 type="button"

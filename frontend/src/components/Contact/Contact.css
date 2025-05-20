@@ -1,0 +1,21 @@
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+    .flex-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .titleContact {
+        font-size: 60px;
+    }
+    p.contactFont {     
+        font-size: 20px;
+    }
+    textarea {
+        width: 100%;
+        max-width: 100%;
+    }
+}
