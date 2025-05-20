@@ -9,10 +9,12 @@ import Admin from './components/Admin/Admin';
 import Success from './components/Stripe/Sucess';
 import Cancel from './components/Stripe/Cancel';
 import CartPage from './components/Cart/CartPage';
+import { Toaster } from 'react-hot-toast'
 import './App.css';
 
 function App() {
   return (
+    <>
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Main />} />
@@ -27,6 +29,8 @@ function App() {
       
       <Route path="/admin" element={<Admin />} />
     </Routes>
+    <Toaster/>
+    </>
   );
 }
 

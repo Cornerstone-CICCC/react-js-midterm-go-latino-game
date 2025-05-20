@@ -4,6 +4,7 @@ import axios from 'axios';
 
 
 import './Login.css'
+import toast from 'react-hot-toast';
 function Login() {
     const [formData, setFormData] = useState({
         email: '',
@@ -24,12 +25,12 @@ function Login() {
             const response = await axios.post('http://localhost:4500/customers/login', formData, {
                 withCredentials: true,
             });
-            alert('Login successful!');
+            toast.success('Login successful!')
             console.log(response.data);
             navigate('/catalog')
         } catch (error) {
             console.error('Login failed:', error);
-            alert('Login failed. Please try again.');
+            toast.error('Login failed. Please try again.')
         }
     };
 
@@ -48,6 +49,19 @@ function Login() {
                 {/*Form */}
                 <div className="userForm">
                     <form onSubmit={handleSubmit}>
+                        {/*Email */}
+                        <div className="flex justify-center p-2">
+                            <input 
+                            name="email"
+                            className="border border-black 
+                            
+
+                            rounded-lg p-2 text-[22px]" 
+                            type="email" 
+                            placeholder="email"
+                            value={formData.email}
+                            onChange={handleChange}/>
+                        </div>
                         {/*Password */}
                         <div className="flex justify-center p-2">
                         <label htmlFor="">
@@ -62,19 +76,6 @@ function Login() {
                             value={formData.password}
                             onChange={handleChange}/>
                         </label>
-                        </div>
-                        {/*Email */}
-                        <div className="flex justify-center p-2">
-                            <input 
-                            name="email"
-                            className="border border-black 
-                            
-
-                            rounded-lg p-2 text-[22px]" 
-                            type="email" 
-                            placeholder="email"
-                            value={formData.email}
-                            onChange={handleChange}/>
                         </div>
                         {/*Sign up Button */}
                         <div className="flex flex-row justify-center">

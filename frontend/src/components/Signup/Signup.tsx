@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -21,11 +22,11 @@ function Signup() {
       const response = await axios.post('http://localhost:4500/customers', formData, {
         withCredentials: true,
       });
-      alert('Signup successful!');
+      toast.success("Signup successful!")
       console.log(response.data);
     } catch (error) {
       console.error('Signup failed:', error);
-      alert('Signup failed. Please try again.');
+      toast.error('Signup failed. Please try again.')
     }
   };
 
@@ -75,17 +76,6 @@ function Signup() {
                 onChange={handleChange}
               />
             </div>
-            {/* Password */}
-            <div className="flex justify-center p-2">
-              <input
-                className="border border-black rounded-lg p-2"
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={formData.password}
-                onChange={handleChange}
-              />
-            </div>
             {/* Email */}
             <div className="flex justify-center p-2">
               <input
@@ -94,6 +84,17 @@ function Signup() {
                 name="email"
                 placeholder="Email"
                 value={formData.email}
+                onChange={handleChange}
+              />
+            </div>
+            {/* Password */}
+            <div className="flex justify-center p-2">
+              <input
+                className="border border-black rounded-lg p-2"
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
                 onChange={handleChange}
               />
             </div>
