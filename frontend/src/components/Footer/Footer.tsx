@@ -14,8 +14,8 @@ function Footer() {
 
     const [message, subscribeAction] = useActionState(subscribe, null);
     return (
-        <footer className="flex p-5 justify-between items-center bg-[#233142] text-white">
-            <div className="grid grid-cols-3 gap-10 w-full text-center">
+        <footer className="flex p-5 items-center bg-[#233142] text-white">
+            <div className="foooter-content grid gap-10 w-full text-center">
                 {/* Copyright Section */}
                 <div>
                     <h5>© 2025 Copyright Company, Inc. All rights reserved.</h5>
