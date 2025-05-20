@@ -1,10 +1,12 @@
+import './Contact.css'
+
 function Contact() {
     return(
         <div className="flex justify-center items-center 
         p-8 bg-[#e3e3e3] text-[#233142] m-8 rounded-md header border-[#f95959] border-8">
             <div className="flex flex-col justify-center items-center">
-                <h1 className="text-[110px]">Contact</h1>
-                <p className="text-[24px] mb-8">Comments? Suggestions?</p>
+                <h1 className="titleContact">Contact</h1>
+                <p className=" mb-8">Comments? Suggestions?</p>
                 <div className="flex flex-row">
                     {/*Column 1 */}
                     <div className="flex flex-col">

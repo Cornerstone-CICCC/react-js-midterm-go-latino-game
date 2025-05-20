@@ -6,8 +6,11 @@ import dotenv from "dotenv";
 dotenv.config();
 import cors from "cors";
 import mongoose from 'mongoose'
-import customerRouter from './routes/Customer.routes'
-import cookieSession from 'cookie-session'
+import customerRouter from './routes/Customer.routes';
+import cookieSession from 'cookie-session';
+import stripeRouter from './routes/Stripe.routes';
+
+
 
 const app = express();
 
@@ -32,6 +35,8 @@ app.use(express.json())
 // Routes
 app.use('/customers', customerRouter)
 app.use("/products", productRoutes)
+app.use("/api", stripeRouter);
+
 // Root route
 app.get('/', (req: Request, res: Response) => {
     res.status(200).send('Welcome to my server');
