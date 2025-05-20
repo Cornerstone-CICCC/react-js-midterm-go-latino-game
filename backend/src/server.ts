@@ -15,10 +15,11 @@ import stripeRouter from './routes/Stripe.routes';
 const app = express();
 
 app.use(cors({
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST"],
-    credentials: true
-}))
+    origin: 'http://localhost:5173',
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  }));
+
 
 const SIGN_KEY = process.env.COOKIE_SIGNIN_KEY
 const ENCRYPT_KEY = process.env.COOKIE_ENCRYPT_KEY

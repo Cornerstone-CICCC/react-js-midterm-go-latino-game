@@ -58,8 +58,25 @@ const deleteProductById = (req, res) => __awaiter(void 0, void 0, void 0, functi
         res.status(500).json({ message: "Unable to delete product" });
     }
 });
+const getproductByName = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { name } = req.query;
+        const product = yield products_model_1.Product.find({
+            name: {
+                $regex: name,
+                $options: 'i'
+            }
+        });
+        res.status(200).json(product);
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Unable to search product" });
+    }
+});
 exports.default = {
     Getall,
+    getproductByName,
     deleteProductById,
     createProduct,
     updateProductById

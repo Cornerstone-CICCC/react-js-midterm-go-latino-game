@@ -16,9 +16,9 @@ const Stripe_routes_1 = __importDefault(require("./routes/Stripe.routes"));
 const app = (0, express_1.default)();
 
 app.use((0, cors_1.default)({
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST"],
-    credentials: true
+    origin: 'http://localhost:5173',
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
 
 const SIGN_KEY = process.env.COOKIE_SIGNIN_KEY;
