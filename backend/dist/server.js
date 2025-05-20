@@ -17,7 +17,10 @@ const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({
     origin: 'http://localhost:5173',
-    credentials: true
+
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+
 }));
 app.use("/products", Product_routes_1.default);
 const SIGN_KEY = process.env.COOKIE_SIGNIN_KEY;
