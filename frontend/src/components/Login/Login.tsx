@@ -52,9 +52,9 @@ function Login() {
                         <div className="flex justify-center p-2">
                         <label htmlFor="">
                             <input 
+                            name="password"
                             className="border border-black 
 
-                            name="password"
 
                             rounded-lg p-2 text-[22px]" 
                             type="password" 
@@ -66,9 +66,9 @@ function Login() {
                         {/*Email */}
                         <div className="flex justify-center p-2">
                             <input 
-                            className="border border-black 
-
                             name="email"
+                            className="border border-black 
+                            
 
                             rounded-lg p-2 text-[22px]" 
                             type="email" 
