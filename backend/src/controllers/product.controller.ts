@@ -50,8 +50,26 @@ const deleteProductById = async (req: Request<{ id: string }>, res: Response) =>
   }
 }
 
+const getproductByName = async (req: Request<{}, {}, {}, { name: string }>, res: Response) => {
+  try {
+    const { name } = req.query
+    const product = await Product.find({
+      name: {
+        $regex: name,
+        $options: 'i'
+      }
+    })
+    res.status(200).json(product)
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ message: "Unable to search product" })
+  }
+}
+
+
 export default {
   Getall,
+  getproductByName,
   deleteProductById,
   createProduct,
   updateProductById
