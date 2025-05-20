@@ -3,10 +3,10 @@ import './Contact.css'
 function Contact() {
     return(
         <div className="flex justify-center items-center 
-        p-8 bg-[#e3e3e3] text-[#233142] m-8 rounded-md header border-[#f95959] border-8">
-            <div className="flex flex-col justify-center items-center">
-                <h1 className="titleContact">Contact</h1>
-                <p className=" mb-8">Comments? Suggestions?</p>
+        p-8 bg-[#e3e3e3] text-[#233142] m-8 rounded-md info border-[#f95959] border-8">
+            <div className="flex flex-col">
+                <h1 className="titleContact flex justify-center">Contact</h1>
+                <p className="flex justify-center">Comments? Suggestions?</p>
                 <div className="flex flex-row">
                     {/*Column 1 */}
                     <div className="flex flex-col">
