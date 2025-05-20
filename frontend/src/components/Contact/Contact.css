@@ -14,7 +14,7 @@
         font-family: "Bebas Neue", sans-serif;
     }
 
-    p {
+    p.pContact {
         font-family: "Bebas Neue", sans-serif;
     }
 
@@ -42,7 +42,7 @@
         font-family: "Bebas Neue", sans-serif;
     }
 
-    p{
+    p.pContact{
         font-family: "Bebas Neue", sans-serif;
     }
 
@@ -70,7 +70,7 @@
         font-family: "Bebas Neue", sans-serif;
     }
 
-    p{
+    p.pContact{
         font-family: "Bebas Neue", sans-serif;
     }
 
@@ -89,7 +89,13 @@
         padding: 10px;
     }
     .flex-row {
-        flex-direction: row;
+        flex-direction: column;
+    }
+
+    .data{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .titleContact {
@@ -97,8 +103,11 @@
         font-family: "Bebas Neue", sans-serif;
     }
 
-    p{
+    p.pContact{
         font-family: "Bebas Neue", sans-serif;
+        width: 100%;
+        max-width: 100%;
+        font-size: 26px;
     }
 
     p.contactFont {     
@@ -109,4 +118,43 @@
         width: 100%;
         max-width: 100%;
     }
+}
+
+@media (min-width: 992px) and (max-width: 1199px){
+    .info {
+        text-align: center;
+    }
+    .flex-row {
+        flex-direction: column;
+    }
+
+    .data{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .titleContact {
+        font-size: 80px;
+        font-family: "Bebas Neue", sans-serif;
+    }
+
+    p.pContact{
+        font-family: "Bebas Neue", sans-serif;
+        width: 100%;
+        max-width: 100%;
+        font-size: 30px;
+    }
+
+    p.contactFont {     
+        font-size: 26px;
+    }
+
+    textarea {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 1200px){
 }

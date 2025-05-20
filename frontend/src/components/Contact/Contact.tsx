@@ -3,13 +3,13 @@ import './Contact.css'
 function Contact() {
     return(
         <div className="flex justify-center items-center 
-        p-8 bg-[#e3e3e3] text-[#233142] m-8 rounded-md info border-[#f95959] border-8">
-            <div className="flex flex-col">
+        p-12 bg-[#e3e3e3] text-[#233142] m-8 rounded-md info border-[#f95959] border-8">
+            <div className="flex flex-col gap-10">
                 <h1 className="titleContact flex justify-center">Contact</h1>
-                <p className="flex justify-center">Comments? Suggestions?</p>
-                <div className="flex flex-row">
+                <p className="pContact flex justify-center">Comments? Suggestions?</p>
+                <div className="flex flex-row p-[15px] gap-10">
                     {/*Column 1 */}
-                    <div className="flex flex-col">
+                    <div className="flex flex-col data">
                         <p className="flex justify-center items-center contactFont">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                             <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
@@ -33,7 +33,7 @@ function Contact() {
                     <div className="flex flex-col">
                         <div className="flex flex-row">
                             {/*Full Name */}
-                            <div className="flex justify-center p-2">
+                            <div className="flex justify-center p-2 text-[26px]">
                             <label htmlFor="">
                                 <input 
                                 className="border border-black 
@@ -43,7 +43,7 @@ function Contact() {
                             </label>
                             </div>
                             {/*Email */}
-                            <div className="flex justify-center p-2">
+                            <div className="flex justify-center p-2 text-[26px]">
                             <label htmlFor="">
                                 <input 
                                 className="border border-black 
@@ -53,7 +53,7 @@ function Contact() {
                             </label>
                             </div>
                         </div>
-                        <div className="flex flex-row justify-center">
+                        <div className="flex flex-row justify-center text-[26px]">
                             {/*Message */}
                             <label htmlFor="message">
                                 <textarea 
