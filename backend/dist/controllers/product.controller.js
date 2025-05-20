@@ -36,7 +36,6 @@ const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.status(500).json({ message: 'Unable to add product' });
     }
 });
-
 const updateProductById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const student = yield products_model_1.Product.findByIdAndUpdate(req.params.id, req.body, {
@@ -49,7 +48,6 @@ const updateProductById = (req, res) => __awaiter(void 0, void 0, void 0, functi
         res.status(500).json({ message: "Unable to update product" });
     }
 });
-
 const deleteProductById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const student = yield products_model_1.Product.findByIdAndDelete(req.params.id);
