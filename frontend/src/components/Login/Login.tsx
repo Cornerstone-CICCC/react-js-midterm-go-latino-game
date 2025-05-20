@@ -1,7 +1,9 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import React, {useState} from 'react';
 import axios from 'axios';
 
+
+import './Login.css'
 function Login() {
     const [formData, setFormData] = useState({
         email: '',
@@ -34,7 +36,7 @@ function Login() {
 
 
     return(
-        <div className="flex flex-row justify-between gap-2 border border-black mx-50 bg-white rounded-4xl mb-8">
+        <div className="flex gap-2 border border-black bg-white rounded-4xl mb-8 loginContainer pb-4 justify-center">
             <div className="flex flex-col m-8 px-8">
                 <div className="logo flex flex-row justify-center">
                     <img className='w-25' src="logoSignUp.svg" alt="logo" />
@@ -51,8 +53,10 @@ function Login() {
                         <label htmlFor="">
                             <input 
                             className="border border-black 
-                            rounded-lg p-2" 
+
                             name="password"
+
+                            rounded-lg p-2 text-[22px]" 
                             type="password" 
                             placeholder="password"
                             value={formData.password}
@@ -63,8 +67,10 @@ function Login() {
                         <div className="flex justify-center p-2">
                             <input 
                             className="border border-black 
-                            rounded-lg p-2" 
+
                             name="email"
+
+                            rounded-lg p-2 text-[22px]" 
                             type="email" 
                             placeholder="email"
                             value={formData.email}
@@ -72,14 +78,16 @@ function Login() {
                         </div>
                         {/*Sign up Button */}
                         <div className="flex flex-row justify-center">
-                            <button type="submit" className="header text-2xl bg-[#f95959] p-2 rounded-s-lg">
+
+                            <button className="header text-[26px] bg-[#f95959] p-2 rounded-s-lg justify-center w-20">
+                            <Link to="/login">Login</Link>
                             </button>
                         </div>
                     </form>
                 </div>
             </div>
-            <div className="flex flex-col justify-center w-150">
-                <img className="border h-full" src="/images/signup-bg.png" alt="model" />
+            <div className="flex">
+                <img className="border h-full image-container " src="/images/signup-bg.png" alt="model" />
             </div>
         </div>
         

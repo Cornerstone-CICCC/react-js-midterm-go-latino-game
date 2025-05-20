@@ -1,3 +1,4 @@
+import './Footer.css'
 import { useActionState } from "react";
 
 function Footer() {

@@ -1,0 +1,204 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: #e3e3e3;
+    color: #233142;
+    margin: 8px;
+    border-radius: 8px;
+  }
+  
+  /*Extra small devices*/
+  @media (max-width: 480px) {
+    .header {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    nav ul li {
+        font-size: 18px;
+    }
+    
+    h1{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .visitUs{
+        display: flex;
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .buttonsHeader{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .buttonsHeader button {
+        font-size: 18px;
+    }
+  }
+  
+  /*Small devices*/
+  @media(min-width: 481px) and (max-width: 599px){
+    .header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul li {
+        font-size: 20px;
+      }
+      
+      h1{
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+      }
+  
+      .visitUs{
+          display: flex;
+          padding: 10px;
+      }
+  
+      .buttonsHeader{
+          display: flex;
+          flex-direction: column;
+      }
+  
+      .buttonsHeader button {
+          font-size: 20px;
+      }
+  }
+
+  @media(min-width: 600px) and (max-width: 767px){
+    .header {
+        flex-direction: row;
+        text-align: center;
+      }
+      
+      nav ul li {
+          font-size: 20px;
+      }
+      
+      h1{
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+      }
+  
+      .visitUs{
+          display: flex;
+          padding: 10px;
+          font-size: 20px;
+      }
+  
+      .buttonsHeader{
+          display: flex;
+          flex-direction: column;
+      }
+  
+      .buttonsHeader button {
+          font-size: 20px;
+      }
+   
+  }
+
+  @media (min-width: 768px) and (max-width: 991px){
+    .header {
+        flex-direction: row;
+        text-align: center;
+      }
+      
+      nav ul li {
+          font-size: 22px;
+      }
+      
+      h1{
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+      }
+  
+      .visitUs{
+          display: flex;
+          padding: 10px;
+          font-size: 22px;
+      }
+  
+      .buttonsHeader{
+          display: flex;
+          flex-direction: column;
+      }
+  
+      .buttonsHeader button {
+          font-size: 22px;
+      }
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px){
+    .header {
+        flex-direction: row;
+        text-align: center;
+      }
+      
+      nav ul li {
+          font-size: 24px;
+      }
+      
+      h1{
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+      }
+  
+      .visitUs{
+          display: flex;
+          padding: 10px;
+          font-size: 24px;
+      }
+  
+      .buttonsHeader{
+          display: flex;
+          flex-direction: column;
+      }
+  
+      .buttonsHeader button {
+          font-size: 24px;
+      }
+  }
+
+  @media (min-width: 1200px){
+    .header {
+        flex-direction: row;
+        text-align: center;
+      }
+      
+      nav ul li {
+          font-size: 26px;
+      }
+      
+      h1{
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+      }
+  
+      .visitUs{
+          display: flex;
+          padding: 10px;
+          font-size: 26px;
+      }
+  
+      .buttonsHeader{
+          display: flex;
+          flex-direction: column;
+      }
+  
+      .buttonsHeader button {
+          font-size: 26px;
+      }
+  }
