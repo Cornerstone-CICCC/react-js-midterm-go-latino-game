@@ -115,7 +115,11 @@ const loginCustomer = (req, res) => __awaiter(void 0, void 0, void 0, function* 
             return;
         }
         if (correctPassword) {
-            req.session.isLoggedIn = true;
+            req.session = {
+                isLoggedIn: true,
+                email: customer.email,
+                isAdmin: customer.email === process.env.ADMIN_EMAIL
+            };
         }
         res.status(200).json({ message: 'customer logged in succesfully' });
     }

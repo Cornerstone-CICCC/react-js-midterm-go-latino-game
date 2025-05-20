@@ -110,9 +110,12 @@ const loginCustomer = async (req: Request, res: Response) => {
             return
         }
         if (correctPassword) {
-            req.session.isLoggedIn = true
+            req.session = {
+                isLoggedIn: true,
+                email: customer.email,
+                isAdmin: customer.email === process.env.ADMIN_EMAIL
+            }
         }
-
         res.status(200).json({message:  'customer logged in succesfully'})
     }
     catch (err) {

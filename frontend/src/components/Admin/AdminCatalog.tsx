@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import type { Iproduct } from '../../../../backend/src/models/products.model'
 
 function AdminCatalog(){
     const [products, setProducts] = useState([
@@ -40,11 +41,25 @@ function AdminCatalog(){
             stock:""
         }
     ]);
+    const [allProducts, setAllProducts] = useState<Iproduct[]>([])
+    
+      useEffect(() => {
+            const getAllProducts = async () => {
+                try {
+                    const res = await fetch('http://localhost:4500/products')
+                    const data = await res.json()
+                    setAllProducts(data)
+                } catch (err) {
+                    console.error('Error fetching products', err)
+                }
+            }
+            getAllProducts()
+        }, [])
 
     //addNewProduct
     const addNewProduct = () => {
         const newProduct = {
-            id: products.length + 1,
+            id: allProducts.length + 1,
             name: "New Product",
             price: 0.00,
             description: "",
@@ -93,43 +108,26 @@ function AdminCatalog(){
             Add New Product
         </button>
 
-            {/*Displaying Products Cards */}
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
-                    {products.map((product) => (
-                        <div key={product.id} className='border p-4 rounded shadow-lg'>
-                            <img src={product.image} alt={product.name} className="w-40 h-32 mx-auto" />
-                            <h2 className='text-lg font-bold'>{product.name}</h2>
-                            <p>{product.description}</p>
-                            <p className="text-[#f95959] font-bold">${product.price.toFixed(2)}</p>
-                            {/*Edit Button */}
-                            <button
-                            onClick={() => editProduct(product.id)} 
-                            className="mt-2 
-                            bg-[#f95959] 
-                            text-white 
-                            p-2 
-                            rounded-lg
-                            w-50
-                            m-2
-                            "
-                        >
-                            Edit
-                        </button>
-                        <button
-                            onClick={() => deleteProduct(product.id)}
-                            className="mt-2
-                            bg-[#f95959] 
-                            text-white 
-                            p-2 
-                            rounded-lg
-                            w-50"
-                        >
-                            Delete
-                        </button>
-                        </div>
-                    ))}
-                </div>
-        </div>
+
+        <ul className='grid grid-cols-1 md:grid-cols-3 gap-4 max-w-full'>
+            {allProducts.map(product => (
+                <li key={product.id} className='group border p-4 rounded shadow-lg'>
+                    <img src={product.image} alt={product.name} className='w-40 h-40 mx-auto rounded-xl transition-transform duration-300 group-hover:scale-185 group-hover:shadow-lg group-hover:z-50' />
+                    <h2 className='text-lg font-bold truncate'>{product.name}</h2>
+                    <p className="text-[#f95959] font-bold truncate">{product.description}</p>
+                    <p className="text-[#f95959] font-bold ">${product.price}</p>
+                    <button
+                        onClick={() => editProduct(product.id)} 
+                        className="mt-2 bg-[#f95959] text-white p-2 rounded-lg w-50 m-2">Edit
+                    </button>
+                    <button
+                        onClick={() => deleteProduct(product.id)}
+                        className="mt-2 bg-[#f95959] text-white p-2 rounded-lg w-50">Delete
+                    </button>
+                </li>
+            ))}
+        </ul>
+     </div>
     );
 }
 

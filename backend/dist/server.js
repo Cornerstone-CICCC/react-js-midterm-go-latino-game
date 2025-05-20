@@ -13,6 +13,8 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const Customer_routes_1 = __importDefault(require("./routes/Customer.routes"));
 const cookie_session_1 = __importDefault(require("cookie-session"));
 const Stripe_routes_1 = __importDefault(require("./routes/Stripe.routes"));
+const admin_middleware_1 = require("./middleware/admin.middleware");
+const Admin_routes_1 = __importDefault(require("./routes/Admin.routes"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
     origin: 'http://localhost:5173',
@@ -30,6 +32,7 @@ app.use((0, cookie_session_1.default)({
 }));
 app.use(express_1.default.json());
 // Routes
+app.use('/admin', admin_middleware_1.requireAdmin, Admin_routes_1.default);
 app.use('/customers', Customer_routes_1.default);
 app.use("/products", Product_routes_1.default);
 app.use("/api", Stripe_routes_1.default);

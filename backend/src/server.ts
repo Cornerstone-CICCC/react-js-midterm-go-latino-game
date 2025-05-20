@@ -9,6 +9,8 @@ import mongoose from 'mongoose'
 import customerRouter from './routes/Customer.routes';
 import cookieSession from 'cookie-session';
 import stripeRouter from './routes/Stripe.routes';
+import { requireAdmin } from "./middleware/admin.middleware";
+import adminRouter from "./routes/Admin.routes";
 
 
 
@@ -34,6 +36,7 @@ app.use(express.json())
 
 
 // Routes
+app.use('/admin', requireAdmin, adminRouter)
 app.use('/customers', customerRouter)
 app.use("/products", productRoutes)
 app.use("/api", stripeRouter);
