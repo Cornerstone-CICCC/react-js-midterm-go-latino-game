@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
+import './AdminCatalog.css'
 
 function AdminCatalog(){
     const [products, setProducts] = useState([
@@ -93,6 +96,21 @@ function AdminCatalog(){
             Add New Product
         </button>
 
+         {/*Sign up Button */}
+         <div className="flex flex-row btn-logout">
+            <button className="
+            flex
+            justify-center
+            m-2 
+            bg-[#f95959] 
+            text-white 
+            p-2 
+            rounded-lg
+            w-50">
+                <Link to="/logout">Logout</Link>
+            </button>
+        </div>
+
             {/*Displaying Products Cards */}
             <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
                     {products.map((product) => (
@@ -104,7 +122,9 @@ function AdminCatalog(){
                             {/*Edit Button */}
                             <button
                             onClick={() => editProduct(product.id)} 
-                            className="mt-2 
+                            className="
+                            btn-action
+                            mt-2 
                             bg-[#f95959] 
                             text-white 
                             p-2 
@@ -122,7 +142,8 @@ function AdminCatalog(){
                             text-white 
                             p-2 
                             rounded-lg
-                            w-50"
+                            w-50
+                            m-2"
                         >
                             Delete
                         </button>
