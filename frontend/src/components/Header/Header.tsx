@@ -31,20 +31,7 @@ function Header() {
 </svg>
                 </a>
             </div>
-            <div className='buttonsHeader flex justify-end gap-4'>
-                {/*Login */}
-                <button 
-                type="button"
-                className="text-2xl bg-[#f95959] p-2 rounded-s-lg">
-                    <Link to="/login">Login</Link>
-                </button>
-                {/*Signup */}
-                <button 
-                type="button"
-                className="text-2xl bg-[#f95959] p-2 rounded-s-lg">
-                    <Link to="/signup">Signup</Link>
-                </button>
-            </div>
+            
         </div>
     );
 }

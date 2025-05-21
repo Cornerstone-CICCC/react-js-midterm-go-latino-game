@@ -26,6 +26,10 @@ body {
   font-size: 24px;
 }
 
+.buttonHeader{
+  font-family: "Felipa", serif;
+}
+
 /* ==================== VARIABLES ==================== */
 
 :root {
